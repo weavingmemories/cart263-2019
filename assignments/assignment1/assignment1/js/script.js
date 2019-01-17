@@ -12,7 +12,8 @@ to overlap another circle (food) in order to grow bigger.
 
 // Constants defining key quantities
 const AVATAR_SIZE_GAIN = 50;
-const AVATAR_SIZE_LOSS = 1;
+const AVATAR_SIZE_LOSS = 0.5;
+const MAX_FOOD_VELOCITY = 10;
 
 // Avatar is an object defined by its properties
 let avatar = {
@@ -28,6 +29,8 @@ let avatar = {
 let food = {
   x: 0,
   y: 0,
+  vx: 5,
+  vy: 5,
   size: 64,
   color: '#55cccc'
 }
@@ -67,6 +70,7 @@ function draw() {
   // Otherwise we handle the game
   background(0);
   updateAvatar();
+  updateFood();
   checkCollision();
   displayAvatar();
   displayFood();
@@ -132,4 +136,44 @@ function displayFood() {
 function positionFood() {
   food.x = random(0,width);
   food.y = random(0,height);
+
+  // Changes initial velocity based on max velocity variable
+food.vx = (random(-MAX_FOOD_VELOCITY,MAX_FOOD_VELOCITY));
+food.vy = (random(-MAX_FOOD_VELOCITY,MAX_FOOD_VELOCITY));
+}
+
+// updateFood()
+//
+// Depending on the food's location on screen, changes the velocity to a random
+// variable within the max range.
+
+function updateFood() {
+
+// Add velocity to the food
+
+food.x += food.vx;
+food.y += food.vy;
+
+// Wrap the food around the edges of the canvas
+
+if (food.x < 0) {
+  food.x += width;
+}
+else if (food.x > width) {
+  food.x -= width;
+}
+
+if (food.y < 0) {
+  food.y += height;
+}
+else if (food.y > height) {
+  food.y -= height;
+}
+
+// Changes velocity based on position
+if (food.x <= height/2){
+  food.vx = (random(-MAX_FOOD_VELOCITY,MAX_FOOD_VELOCITY));
+  food.vy = (random(-MAX_FOOD_VELOCITY,MAX_FOOD_VELOCITY));
+
+}
 }
