@@ -5,8 +5,8 @@
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
     		<title>Claustro-tab-ia</title>
     <!-- CSS stylesheet(s) -->
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-
     <!-- Libraries -->
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -17,7 +17,7 @@
     src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
     integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
-    
+
     <!-- My script(s) -->
     <script src="js/script.js"></script>
   </head>
@@ -25,10 +25,21 @@
   <body>
     <!-- This div holds the main window. Inside of it is another div that
     is a fixed size, which will hold the generated tabs/divs. -->
-    <div id="mainWindow">
-        <div id="tabBar">
-
-        </div>
+    <div id="tabs">
+      <ul>
+        <li><a href="#fragment-1">One</a></li>
+        <li><a href="#fragment-2">Two</a></li>
+        <li><a href="#fragment-3">Three</a></li>
+      </ul>
+      <div id="fragment-1">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+      <div id="fragment-2">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
+      <div id="fragment-3">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+      </div>
     </div>
   </body>
 

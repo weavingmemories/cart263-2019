@@ -38,7 +38,7 @@ to prevent the player from truly reaching any 'end' state.
 $(document).ready(setup);
 
 function setup() {
-
+  $( "#tabs" ).tabs();
 }
 
 // When the tab is closed, remove the tab/div.
