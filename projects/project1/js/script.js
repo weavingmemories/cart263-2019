@@ -75,7 +75,6 @@ function setup() {
 
   $( "#tabs" ).tabs();
   console.log("setup working");
-
   setInterval(function() {
     draw();
   }, 1);
@@ -89,7 +88,7 @@ function draw() {
 }
 
  function update() {
-$(this).on("click", removeTab);
+
   // if (tabCounter <= 10) {
 if (Math.random() <= 0.01) {
   // console.log("update function working");
@@ -102,15 +101,19 @@ if (Math.random() <= 0.01) {
 // and then refreshing the tabs so they all update and display.
 
 function addTab() {
-
-  $("<li><a href='myTab.txt'>New Tab</a></li>").appendTo("#tabs .ui-tabs-nav");
+let span = $("<span>(x)</span>")
+let tab = $("<li><a href='myTab.txt'>New Tab</a></li>")
+tab.append(span);
+span.on("click", removeTab);
+  tab.appendTo("#tabs .ui-tabs-nav");
   $("#tabs").tabs("refresh");
 }
 
 // When the tab is closed, remove the tab/div.
 function removeTab() {
-  if ($(this).hasClass("ul-tabs-tab")) {
-          $(this).remove();
-        }
+console.log("removed");
+          $(this).parent().remove();
+
       $("#tabs").tabs("refresh");
+
     }
