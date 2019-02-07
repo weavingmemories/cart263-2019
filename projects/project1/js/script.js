@@ -30,3 +30,18 @@ to prevent the player from truly reaching any 'end' state.
   b) Adding tab 'icons' (the little logos that appear next to tab names,
      to the left)
 */
+
+// Variables
+
+// When the document is loaded, setup the code.
+
+$(document).ready(setup);
+
+function setup() {
+
+}
+
+// When the tab is closed, remove the tab/div.
+function tabClicked() {
+
+}
