@@ -30,8 +30,42 @@ to prevent the player from truly reaching any 'end' state.
   b) Adding tab 'icons' (the little logos that appear next to tab names,
      to the left)
 */
+"use strict";
 
 // Variables
+
+/*
+ var tabTitles = [
+  "Cake",
+  "Parfait",
+  "IceCream",
+  "Danish",
+  "Eclair",
+  "Strawberry",
+  "Mango",
+  "Orange"
+];
+*/
+
+/*
+var tabContent = [
+  "DogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDog",
+  "CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat",
+  "RabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbit",
+  "SnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnail",
+  "MongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongoose",
+  "ElephantElephantElephantElephantElephantElephantElephantElephantElephantElephant",
+  "MonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkey",
+  "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
+];
+*/
+/*
+ $.fn.addTab = function (name) {
+    $('ul', this).append('<li><a href="#tab-' + name + '">' + name + '</a></li>');
+    $(this).append("<div id='tab-" + name + "'></div>");
+    $(this).tabs("refresh");
+};
+*/
 
 // When the document is loaded, setup the code.
 
@@ -41,7 +75,24 @@ function setup() {
   $( "#tabs" ).tabs();
 }
 
-// When the tab is closed, remove the tab/div.
-function tabClicked() {
-
+function draw() {
+//  if (random() <= 0.5) {
+    console.log("Sup dude");
+  //update();
+//}
 }
+//
+
+/* function update() {
+if (random() <= 0.03) {
+  console.log("Random");
+  var num_tabs = $("div#tabs ul li").length + 1;
+        $('div#tabs').tabs('add', 'tab'+num_tabs, num_tabs);
+        $("div#tabs").tabs("refresh");
+}
+} */
+
+// When the tab is closed, remove the tab/div.
+//function tabClicked() {
+
+//}
