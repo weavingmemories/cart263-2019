@@ -58,6 +58,8 @@ var tabContent = [
   "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
 ];
 
+let idNumber = 0;
+
 // let tabCounter = document.getElementById("tabs")
 
 
@@ -101,11 +103,15 @@ if (Math.random() <= 0.01) {
 // and then refreshing the tabs so they all update and display.
 
 function addTab() {
-let span = $("<span>(x)</span>")
-let tab = $("<li><a href='myTab.txt'>New Tab</a></li>")
+let span = $("<span>[x]</span>")
+
+let tab = $("<li><a href='#tab"+idNumber+"'>New Tab</a></li>")
+let tabContent = $('<div id="tab"'+idNumber+'>nonsense</div>')
 tab.append(span);
 span.on("click", removeTab);
   tab.appendTo("#tabs .ui-tabs-nav");
+  idNumber++;
+  $('#tabs').append(tabContent);
   $("#tabs").tabs("refresh");
 }
 
