@@ -30,11 +30,12 @@ to prevent the player from truly reaching any 'end' state.
   b) Adding tab 'icons' (the little logos that appear next to tab names,
      to the left)
 */
+
 "use strict";
 
 // Variables
 
-/*
+
  var tabTitles = [
   "Cake",
   "Parfait",
@@ -45,9 +46,7 @@ to prevent the player from truly reaching any 'end' state.
   "Mango",
   "Orange"
 ];
-*/
 
-/*
 var tabContent = [
   "DogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDog",
   "CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat",
@@ -58,14 +57,7 @@ var tabContent = [
   "MonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkey",
   "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
 ];
-*/
-/*
- $.fn.addTab = function (name) {
-    $('ul', this).append('<li><a href="#tab-' + name + '">' + name + '</a></li>');
-    $(this).append("<div id='tab-" + name + "'></div>");
-    $(this).tabs("refresh");
-};
-*/
+
 
 // When the document is loaded, setup the code.
 
@@ -73,24 +65,22 @@ $(document).ready(setup);
 
 function setup() {
   $( "#tabs" ).tabs();
+  console.log("setup working");
+  setInterval(function() {
+    draw();
+  }, 1);
 }
 
 function draw() {
-//  if (random() <= 0.5) {
-    console.log("Sup dude");
-  //update();
-//}
+  console.log("draw loop working");
+  update();
 }
-//
 
-/* function update() {
-if (random() <= 0.03) {
-  console.log("Random");
-  var num_tabs = $("div#tabs ul li").length + 1;
-        $('div#tabs').tabs('add', 'tab'+num_tabs, num_tabs);
-        $("div#tabs").tabs("refresh");
+ function update() {
+if (Math.random() <= 0.03) {
+  console.log("update function working");
+  }
 }
-} */
 
 // When the tab is closed, remove the tab/div.
 //function tabClicked() {
