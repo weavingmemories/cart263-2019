@@ -58,10 +58,16 @@ var tabContent = [
   "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
 ];
 
+let tabCounter = document.getElementById("tabs")
+
 
 // When the document is loaded, setup the code.
 
 $(document).ready(setup);
+
+// Setup: Loads the tabs in jquery and sets an interval to call draw
+// on a loop every 1000 milliseconds. This ensures the program is continuously
+// updating.
 
 function setup() {
   $( "#tabs" ).tabs();
@@ -72,17 +78,27 @@ function setup() {
 }
 
 function draw() {
-  console.log("draw loop working");
+//  console.log("draw loop working");
   update();
+  console.log(tabCounter);
 }
 
  function update() {
+
+  // if (tabCounter <= 10) {
 if (Math.random() <= 0.03) {
-  console.log("update function working");
+  // console.log("update function working");
+  addTab();
   }
+// }
+}
+
+function addTab() {
+  $("<li><a href='myTab.txt'>New Tab</a></li>").appendTo("#tabs .ui-tabs-nav");
+  $("#tabs").tabs("refresh");
 }
 
 // When the tab is closed, remove the tab/div.
-//function tabClicked() {
+function removeTab() {
 
-//}
+}
