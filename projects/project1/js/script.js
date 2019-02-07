@@ -58,7 +58,7 @@ var tabContent = [
   "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
 ];
 
-let tabCounter = document.getElementById("tabs")
+// let tabCounter = document.getElementById("tabs")
 
 
 // When the document is loaded, setup the code.
@@ -70,35 +70,47 @@ $(document).ready(setup);
 // updating.
 
 function setup() {
+
+    var tabs = $( "#tabs" ).tabs();
+
   $( "#tabs" ).tabs();
   console.log("setup working");
+
   setInterval(function() {
     draw();
   }, 1);
+
 }
 
 function draw() {
 //  console.log("draw loop working");
   update();
-  console.log(tabCounter);
+//  console.log(tabCounter);
 }
 
  function update() {
-
+$(this).on("click", removeTab);
   // if (tabCounter <= 10) {
-if (Math.random() <= 0.03) {
+if (Math.random() <= 0.01) {
   // console.log("update function working");
   addTab();
   }
 // }
 }
 
+// addTab(): This function adds a new list element, thereby adding a new tab
+// and then refreshing the tabs so they all update and display.
+
 function addTab() {
+
   $("<li><a href='myTab.txt'>New Tab</a></li>").appendTo("#tabs .ui-tabs-nav");
   $("#tabs").tabs("refresh");
 }
 
 // When the tab is closed, remove the tab/div.
 function removeTab() {
-
-}
+  if ($(this).hasClass("ul-tabs-tab")) {
+          $(this).remove();
+        }
+      $("#tabs").tabs("refresh");
+    }
