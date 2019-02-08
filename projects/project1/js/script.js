@@ -59,6 +59,7 @@ var tabContent = [
 ];
 
 let idNumber = 0;
+let tabCount = 0;
 
 // let tabCounter = document.getElementById("tabs")
 
@@ -78,21 +79,23 @@ function setup() {
   $( "#tabs" ).tabs();
   console.log("setup working");
   setInterval(function() {
-    draw();
+    update();
   }, 1);
 
 }
 
-function draw() {
-//  console.log("draw loop working");
-  update();
-//  console.log(tabCounter);
-}
+// update(): This function acts as a draw loop, updating the page
+// at the interval set in the previous function. To make the objective
+// of closing all tabs impossible, the speed at which tabs regenerate
+// increases drastically if there are 2 or less tabs currently on the
+// page. The probability, when the condition is true, calls the addTab() function.
 
  function update() {
-
-  // if (tabCounter <= 10) {
-if (Math.random() <= 0.01) {
+let randomAmount = 0.01;
+   if (tabCount <= 2) {
+  randomAmount = 0.3;
+}
+if (Math.random() <= randomAmount) {
   // console.log("update function working");
   addTab();
   }
@@ -100,9 +103,12 @@ if (Math.random() <= 0.01) {
 }
 
 // addTab(): This function adds a new list element, thereby adding a new tab
-// and then refreshing the tabs so they all update and display.
+// and then refreshing the tabs so they all update and display. It also
+// adds a span, that displays as [x], which when clicked, calls the function
+// removeTab(), which will close the tab.
 
 function addTab() {
+  if (tabCount <=10) {
 let span = $("<span>[x]</span>")
 
 let tab = $("<li><a href='#tab"+idNumber+"'>New Tab</a></li>")
@@ -111,15 +117,18 @@ tab.append(span);
 span.on("click", removeTab);
   tab.appendTo("#tabs .ui-tabs-nav");
   idNumber++;
+  tabCount++;
   $('#tabs').append(tabContent);
   $("#tabs").tabs("refresh");
 }
+}
 
-// When the tab is closed, remove the tab/div.
+// removeTab(): This function removes the tab.
+
 function removeTab() {
 console.log("removed");
           $(this).parent().remove();
-
+tabCount--;
       $("#tabs").tabs("refresh");
 
     }
