@@ -37,14 +37,15 @@ to prevent the player from truly reaching any 'end' state.
 
 
  var tabTitles = [
-  "Cake",
-  "Parfait",
-  "IceCream",
-  "Danish",
-  "Eclair",
-  "Strawberry",
-  "Mango",
-  "Orange"
+  "Get Rid of TABS For Good",
+  "Top 10 Tips To Grow Your TABS",
+  "TABS? It's Easy If You Do It Smart",
+  "TABS Strategies For Beginners",
+  "Your Key To Success: TABS",
+  "Take The Stress Out Of TABS",
+  "TABS Smackdown!",
+  "TABS: What A Mistake!",
+  "Master (Your) TABS in 5 Minutes A Day"
 ];
 
 var tabContent = [
@@ -109,10 +110,12 @@ if (Math.random() <= randomAmount) {
 
 function addTab() {
   if (tabCount <=10) {
-let span = $("<span>[x]</span>")
+    let span = $("<span>[x]</span>");
 
-let tab = $("<li><a href='#tab"+idNumber+"'>New Tab</a></li>")
-let tabContent = $('<div id="tab"'+idNumber+'>nonsense</div>')
+    var tabTitle = tabTitles[Math.floor(Math.random()*tabTitles.length)];
+
+let tab = $("<li><a href='#tab"+idNumber+"'>tabTitle</a></li>");
+let tabContent = $('<div id="tab"'+idNumber+'>beans</div>');
 tab.append(span);
 span.on("click", removeTab);
   tab.appendTo("#tabs .ui-tabs-nav");
@@ -120,13 +123,13 @@ span.on("click", removeTab);
   tabCount++;
   $('#tabs').append(tabContent);
   $("#tabs").tabs("refresh");
-}
+  }
 }
 
 // removeTab(): This function removes the tab.
 
 function removeTab() {
-console.log("removed");
+// console.log("removed");
           $(this).parent().remove();
 tabCount--;
       $("#tabs").tabs("refresh");
