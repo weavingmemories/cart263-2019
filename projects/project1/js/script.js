@@ -127,8 +127,6 @@ span.on("click", removeTab);
 // removeTab(): This function removes the tab.
 
 function removeTab() {
-  //let tabContent = $('<div id="tab">beans</div>');
-  //$('#tabs').append(tabContent);
    closeTabSFX.play();
    $(this).parent().remove();
    tabCount--;
