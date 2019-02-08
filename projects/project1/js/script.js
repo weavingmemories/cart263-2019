@@ -35,8 +35,12 @@ to prevent the player from truly reaching any 'end' state.
 
 // Variables
 
+let closeTabSFX = new Audio("assets/sounds/closetab.wav");
 
- var tabTitles = [
+// Initially, there was going to be an array of randomly generated titles
+// via this list. I would like to eventually add this to the project.
+
+/* var tabTitles = [
   "Get Rid of TABS For Good",
   "Top 10 Tips To Grow Your TABS",
   "TABS? It's Easy If You Do It Smart",
@@ -48,22 +52,10 @@ to prevent the player from truly reaching any 'end' state.
   "Master (Your) TABS in 5 Minutes A Day"
 ];
 
-var tabContent = [
-  "DogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDog",
-  "CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat",
-  "RabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbit",
-  "SnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnail",
-  "MongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongoose",
-  "ElephantElephantElephantElephantElephantElephantElephantElephantElephantElephant",
-  "MonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkey",
-  "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
-];
+*/
 
 let idNumber = 0;
 let tabCount = 0;
-
-// let tabCounter = document.getElementById("tabs")
-
 
 // When the document is loaded, setup the code.
 
@@ -99,6 +91,7 @@ let randomAmount = 0.01;
 if (Math.random() <= randomAmount) {
   // console.log("update function working");
   addTab();
+
   }
 // }
 }
@@ -112,16 +105,21 @@ function addTab() {
   if (tabCount <=10) {
     let span = $("<span>[x]</span>");
 
-    var tabTitle = tabTitles[Math.floor(Math.random()*tabTitles.length)];
+  // Originally supposed to work in tandem with the array. Hoping to add this in later.
+  //  let tabTitle = tabTitles[Math.floor(Math.random()*tabTitles.length)];
 
-let tab = $("<li><a href='#tab"+idNumber+"'>tabTitle</a></li>");
-let tabContent = $('<div id="tab"'+idNumber+'>beans</div>');
+let tab = $("<li><a href='#tab" + idNumber + "'>New Tab</a></li>");
+
 tab.append(span);
 span.on("click", removeTab);
   tab.appendTo("#tabs .ui-tabs-nav");
+  if (idNumber <=9) {
   idNumber++;
+}
+  if (idNumber >=9) {
+    idNumber = 0;
+  }
   tabCount++;
-  $('#tabs').append(tabContent);
   $("#tabs").tabs("refresh");
   }
 }
@@ -129,9 +127,11 @@ span.on("click", removeTab);
 // removeTab(): This function removes the tab.
 
 function removeTab() {
-// console.log("removed");
-          $(this).parent().remove();
-tabCount--;
-      $("#tabs").tabs("refresh");
+  //let tabContent = $('<div id="tab">beans</div>');
+  //$('#tabs').append(tabContent);
+   closeTabSFX.play();
+   $(this).parent().remove();
+   tabCount--;
+   $("#tabs").tabs("refresh");
 
     }
