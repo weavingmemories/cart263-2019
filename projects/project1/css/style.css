@@ -3,3 +3,14 @@
 This is the style file for this project.
 
 **********************************************/
+
+/* This simple code solves an issue where all of the tab's contents were
+visible at once until the tabs loaded.*/
+
+.tab-content.active{
+				display: block;
+			}
+
+			.tab-content.hide{
+				display: none;
+			}

@@ -35,33 +35,27 @@ to prevent the player from truly reaching any 'end' state.
 
 // Variables
 
+let closeTabSFX = new Audio("assets/sounds/closetab.wav");
 
- var tabTitles = [
-  "Cake",
-  "Parfait",
-  "IceCream",
-  "Danish",
-  "Eclair",
-  "Strawberry",
-  "Mango",
-  "Orange"
+// Initially, there was going to be an array of randomly generated titles
+// via this list. I would like to eventually add this to the project.
+
+/* var tabTitles = [
+  "Get Rid of TABS For Good",
+  "Top 10 Tips To Grow Your TABS",
+  "TABS? It's Easy If You Do It Smart",
+  "TABS Strategies For Beginners",
+  "Your Key To Success: TABS",
+  "Take The Stress Out Of TABS",
+  "TABS Smackdown!",
+  "TABS: What A Mistake!",
+  "Master (Your) TABS in 5 Minutes A Day"
 ];
 
-var tabContent = [
-  "DogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDogDog",
-  "CatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCatCat",
-  "RabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbitRabbit",
-  "SnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnailSnail",
-  "MongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongooseMongoose",
-  "ElephantElephantElephantElephantElephantElephantElephantElephantElephantElephant",
-  "MonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkeyMonkey",
-  "CockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatielCockatiel"
-];
+*/
 
 let idNumber = 0;
-
-// let tabCounter = document.getElementById("tabs")
-
+let tabCount = 0;
 
 // When the document is loaded, setup the code.
 
@@ -78,48 +72,64 @@ function setup() {
   $( "#tabs" ).tabs();
   console.log("setup working");
   setInterval(function() {
-    draw();
+    update();
   }, 1);
 
 }
 
-function draw() {
-//  console.log("draw loop working");
-  update();
-//  console.log(tabCounter);
-}
+// update(): This function acts as a draw loop, updating the page
+// at the interval set in the previous function. To make the objective
+// of closing all tabs impossible, the speed at which tabs regenerate
+// increases drastically if there are 2 or less tabs currently on the
+// page. The probability, when the condition is true, calls the addTab() function.
 
  function update() {
-
-  // if (tabCounter <= 10) {
-if (Math.random() <= 0.01) {
+let randomAmount = 0.01;
+   if (tabCount <= 2) {
+  randomAmount = 0.3;
+}
+if (Math.random() <= randomAmount) {
   // console.log("update function working");
   addTab();
+
   }
 // }
 }
 
 // addTab(): This function adds a new list element, thereby adding a new tab
-// and then refreshing the tabs so they all update and display.
+// and then refreshing the tabs so they all update and display. It also
+// adds a span, that displays as [x], which when clicked, calls the function
+// removeTab(), which will close the tab.
 
 function addTab() {
-let span = $("<span>[x]</span>")
+  if (tabCount <=10) {
+    let span = $("<span>[x]</span>");
 
-let tab = $("<li><a href='#tab"+idNumber+"'>New Tab</a></li>")
-let tabContent = $('<div id="tab"'+idNumber+'>nonsense</div>')
+  // Originally supposed to work in tandem with the array. Hoping to add this in later.
+  //  let tabTitle = tabTitles[Math.floor(Math.random()*tabTitles.length)];
+
+let tab = $("<li><a href='#tab" + idNumber + "'>New Tab</a></li>");
+
 tab.append(span);
 span.on("click", removeTab);
   tab.appendTo("#tabs .ui-tabs-nav");
+  if (idNumber <=9) {
   idNumber++;
-  $('#tabs').append(tabContent);
+}
+  if (idNumber >=9) {
+    idNumber = 0;
+  }
+  tabCount++;
   $("#tabs").tabs("refresh");
+  }
 }
 
-// When the tab is closed, remove the tab/div.
-function removeTab() {
-console.log("removed");
-          $(this).parent().remove();
+// removeTab(): This function removes the tab.
 
-      $("#tabs").tabs("refresh");
+function removeTab() {
+   closeTabSFX.play();
+   $(this).parent().remove();
+   tabCount--;
+   $("#tabs").tabs("refresh");
 
     }
