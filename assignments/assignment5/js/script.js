@@ -163,6 +163,8 @@ let correctAnimal;
 // We also track all the possibly answers (mostly so we can switch their order around)
 let answers = [];
 
+let score = 0;
+
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
 
@@ -181,13 +183,56 @@ function setup() {
     'i give up': function() {
       console.log("You fool!");
       //shake the correct answer button
-      $(correctAnimal).effect('shake');
-      newRound();
+      $('.guess').each(function () {
+        if ($(this).text() === correctAnimal){
+          $(this).effect('shake');
+        }
+    });
+
+    setTimeout(function() {
+      // Remove all the buttons
+      $('.guess').remove();
+    }, 1000);
+
+    score = 0;
+    // Start  new round
+    setTimeout(newRound,1000);
+  } ,
+
+
+'say it again': function() {
+  console.log("Repeating");
+  speakAnimal(correctAnimal);
 },
-    'i think it is *animals': function() {
-      console.log("You think it is animals?");
+
+    'i think it is *animals': function(phrase) {
+
       //answer is checked for correct, then calls
+      $('.guess').each(function () {
+    if ($(this).text() === phrase){
+      // If the button they clicked on has a label matching the correct answer...
+      if ($(this).text() === correctAnimal) {
+        // Remove all the buttons
+        $('.guess').remove();
+        score += 1;
+        $('#score').text('score: ' + score);
+        // Start a new round
+        setTimeout(newRound,1000);
+      }
+      else {
+        // Otherwise they were wrong, so shake the button
+        $(this).effect('shake');
+        // And say the correct animal again to "help" them
+        speakAnimal(correctAnimal);
+        score = 0;
+        $('#score').text('score: ' + score);
+      }
     }
+});
+},
+'i dunno': function() {
+  responsiveVoice.speak('That is not an answer','Australian Female');
+}
   };
 
   // Add our commands to annyang
@@ -229,6 +274,7 @@ function newRound() {
 
   // Say the name of the animal
   speakAnimal(correctAnimal);
+  $('#score').text('score: ' + score);
 }
 
 // speakAnimal(name)
@@ -254,9 +300,9 @@ function speakAnimal(name) {
     rate: Math.random()
   };
 
-  // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
+  // Use ResponsiveVoice to speak the string we generated, with Australian Female voice
   // and the options we just specified.
-  responsiveVoice.speak(reverseAnimal,'UK English Male',options);
+  responsiveVoice.speak(reverseAnimal,'Australian Female',options);
 }
 
 // addButton(label)
@@ -276,12 +322,16 @@ function addButton(label) {
     if ($(this).text() === correctAnimal) {
       // Remove all the buttons
       $('.guess').remove();
+      score += 1;
+     $('#score').text('score: ' + score);
       // Start a new round
       setTimeout(newRound,1000);
     }
     else {
       // Otherwise they were wrong, so shake the button
       $(this).effect('shake');
+      score = 0;
+      $('#score').text('score: ' + score);
       // And say the correct animal again to "help" them
       speakAnimal(correctAnimal);
     }
