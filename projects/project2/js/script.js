@@ -82,31 +82,31 @@ function setup() {
 randomPinky() {
   console.log("Pinky randomized.");
   pinkyImage = pinky[Math.floor(Math.random() * pinky.length)];
-  document.getElementById("pinky").src = "assets/images/pinky" + pinkyImage + ".png";
+  document.getElementById("pinky").src = "assets/images/" + pinkyImage;
 }
 
 randomRing() {
   console.log("Ring randomized.");
   ringImage = ring[Math.floor(Math.random() * ring.length)];
-  document.getElementById("ring").src = "assets/images/ring" + ringImage + ".png";
+  document.getElementById("ring").src = "assets/images/" + ringImage;
 }
 
 randomMiddle() {
   console.log("Middle randomized.");
   middleImage = middle[Math.floor(Math.random() * middle.length)];
-  document.getElementById("middle").src = "assets/images/middle" + middleImage + ".png";
+  document.getElementById("middle").src = "assets/images/" + middleImage;
 }
 
 randomIndex() {
   console.log("Index randomized.");
   indexImage = index[Math.floor(Math.random() * index.length)];
-  document.getElementById("index").src = "assets/images/index" + indexImage + ".png";
+  document.getElementById("index").src = "assets/images/" + indexImage;
 }
 
 randomThumb() {
   console.log("Thumb randomized.");
   thumbImage = thumb[Math.floor(Math.random() * thumb.length)];
-  document.getElementById("thumb").src = "assets/images/thumb" + thumbImage + ".png";
+  document.getElementById("thumb").src = "assets/images/" + thumbImage;
 }
 
 // example code for updating images
