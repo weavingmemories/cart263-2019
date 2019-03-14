@@ -57,6 +57,12 @@ let pinky = [
 "pinky5.png"
 ];
 
+let pinkyImage;
+let ringImage;
+let middleImage;
+let indexImage;
+let thumbImage;
+
 $(document).ready(setup);
 
 function setup() {
@@ -80,37 +86,37 @@ function setup() {
 
 }
 
-randomPinky() {
+function randomPinky() {
   console.log("Pinky randomized.");
   pinkyImage = pinky[Math.floor(Math.random() * pinky.length)];
   document.getElementById("pinky").src = "assets/images/" + pinkyImage;
 }
 
-randomRing() {
+function randomRing() {
   console.log("Ring randomized.");
   ringImage = ring[Math.floor(Math.random() * ring.length)];
   document.getElementById("ring").src = "assets/images/" + ringImage;
 }
 
-randomMiddle() {
+function randomMiddle() {
   console.log("Middle randomized.");
   middleImage = middle[Math.floor(Math.random() * middle.length)];
   document.getElementById("middle").src = "assets/images/" + middleImage;
 }
 
-randomIndex() {
+function randomIndex() {
   console.log("Index randomized.");
   indexImage = index[Math.floor(Math.random() * index.length)];
   document.getElementById("index").src = "assets/images/" + indexImage;
 }
 
-randomThumb() {
+function randomThumb() {
   console.log("Thumb randomized.");
   thumbImage = thumb[Math.floor(Math.random() * thumb.length)];
   document.getElementById("thumb").src = "assets/images/" + thumbImage;
 }
 
-startup() {
+function startup() {
   randomPinky();
   randomRing();
   randomMiddle();

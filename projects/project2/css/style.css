@@ -13,5 +13,6 @@ This is the style file for this project.
 }
 
 .fingers {
+  position: absolute;
   z-index: 1;
 }
