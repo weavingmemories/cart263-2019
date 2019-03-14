@@ -162,31 +162,39 @@ function randomPinky() {
   console.log("Pinky randomized.");
   pinkyImage = pinky[Math.floor(Math.random() * pinky.length)];
   document.getElementById("pinky").src = "assets/images/" + pinkyImage;
-  pinky.push("pinky");
+  let temporaryArray = ["pinky3.png", "pinky4.png"]
+creepyImage = [Math.floor(Math.random() * temporaryArray.length)];
+  pinky.push(creepyImage);
 }
 
 function randomRing() {
   console.log("Ring randomized.");
   ringImage = ring[Math.floor(Math.random() * ring.length)];
   document.getElementById("ring").src = "assets/images/" + ringImage;
+  ring.push("ring3.png");
 }
 
 function randomMiddle() {
   console.log("Middle randomized.");
   middleImage = middle[Math.floor(Math.random() * middle.length)];
   document.getElementById("middle").src = "assets/images/" + middleImage;
+  middle.push("middle3.png");
 }
 
 function randomIndex() {
   console.log("Index randomized.");
   indexImage = index[Math.floor(Math.random() * index.length)];
   document.getElementById("index").src = "assets/images/" + indexImage;
+  let temporaryArray = ["index3.png", "index4.png"]
+creepyImage = [Math.floor(Math.random() * temporaryArray.length)];
+  index.push(creepyImage);
 }
 
 function randomThumb() {
   console.log("Thumb randomized.");
   thumbImage = thumb[Math.floor(Math.random() * thumb.length)];
   document.getElementById("thumb").src = "assets/images/" + thumbImage;
+  thumb.push("thumb4.png");
 }
 
 function startup() {
