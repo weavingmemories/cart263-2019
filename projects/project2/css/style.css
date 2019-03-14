@@ -7,12 +7,31 @@ This is the style file for this project.
 .hand {
     position    : absolute;
     bottom      : 10px;
-    left        : 50%;
+    left        : 35%;
     margin-left : -100px; /* half width of img */
     z-index : -1;
 }
 
 .fingers {
   position: absolute;
+}
+
+#pinky {
   z-index: 1;
+}
+
+#ring {
+z-index: 2;
+}
+
+#middle {
+z-index: 3;
+}
+
+#index {
+z-index: 4;
+}
+
+#thumb {
+z-index: 5;
 }
