@@ -129,6 +129,7 @@ let pinky = [
   "pinky5.png"
 ];
 
+
 let pinkyImage;
 let ringImage;
 let middleImage;
@@ -139,31 +140,45 @@ $(document).ready(setup);
 
 function setup() {
   startup();
-  /*
+
   if (annyang) {
     var commands = {
-      'pinky': randomPinky();,
-      'ring': randomRing();,
-      'middle': randomMiddle();,
-      'index': randomIndex();,
-      'thumb': randomThumb();
+      'pinky': randomPinky,
+      'ring': randomRing,
+      'middle': randomMiddle,
+      'index': randomIndex,
+      'thumb': randomThumb
     };
     // Add our commands to annyang
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
-  }
-  */
-
 }
+}
+
+/*
+I tried to generalize everything into one function, but unfortunately this didn't work.
+Please let me know what I was missing!
+
+function randomDigit(digitName,digitArray) {
+  console.log("Digit randomized.");
+  let image = digitArray[Math.floor(Math.random() * digitArray.length)];
+  document.getElementById(digitName).src = "assets/images/" + image;
+  if (digitName = pinky || index) {
+  let temporaryArray = [digitName + "3.png", digitName + "4.png"]
+  let creepyImage = temporaryArray[Math.floor(Math.random() * temporaryArray.length)];
+  digitArray.push(creepyImage);
+}
+}
+*/
 
 function randomPinky() {
   console.log("Pinky randomized.");
   pinkyImage = pinky[Math.floor(Math.random() * pinky.length)];
   document.getElementById("pinky").src = "assets/images/" + pinkyImage;
   let temporaryArray = ["pinky3.png", "pinky4.png"]
-creepyImage = [Math.floor(Math.random() * temporaryArray.length)];
+  let creepyImage = temporaryArray[Math.floor(Math.random() * temporaryArray.length)];
   pinky.push(creepyImage);
 }
 
@@ -186,7 +201,7 @@ function randomIndex() {
   indexImage = index[Math.floor(Math.random() * index.length)];
   document.getElementById("index").src = "assets/images/" + indexImage;
   let temporaryArray = ["index3.png", "index4.png"]
-creepyImage = [Math.floor(Math.random() * temporaryArray.length)];
+let creepyImage = temporaryArray[Math.floor(Math.random() * temporaryArray.length)];
   index.push(creepyImage);
 }
 
