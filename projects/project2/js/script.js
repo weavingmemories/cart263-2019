@@ -59,6 +59,44 @@ let pinky = [
 
 $(document).ready(setup);
 
+function setup() {
+  if (annyang) {
+    var commands = {
+      'pinky': randomPinky();,
+      'ring': randomRing();,
+      'middle': randomMiddle();,
+      'index': randomIndex();,
+      'thumb': randomThumb();
+    };
+    // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+  }
+
+}
+
+randomPinky() {
+  console.log("Pinky randomized.");
+}
+
+randomRing() {
+  console.log("Ring randomized.");
+}
+
+randomMiddle() {
+  console.log("Middle randomized.");
+}
+
+randomIndex() {
+  console.log("Index randomized.");
+}
+
+randomThumb() {
+  console.log("Thumb randomized.");
+}
+
 // example code for updating images
 /*
 for (var i = 0; i < boldStuffs.length; i += 1) {
