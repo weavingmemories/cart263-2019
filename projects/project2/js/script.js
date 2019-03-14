@@ -18,43 +18,23 @@ Project Checklist:
 ******************/
 
 let thumb = [
-{ name: 'greygirl', image: 'thumb_01_greygorl.png' },
-{ name: 'thumper', image: 'thumb_02_thumper.png' },
-{ name: 'minion', image: 'thumb_03_minion.png' },
-{ name: 'vampelsa', image: 'thumb_04_vampelsa.png' },
-{ name: 'peppa', image: 'thumb_05_peppa.png' }
+
 ];
 
 let index = [
-  { name: 'ariel', image: 'index_01_ariel.png' },
-  { name: 'aurora', image: 'index_02_aurora.png' },
-  { name: 'joker1', image: 'index_03_joker.png' },
-  { name: 'robbermickey', image: 'index_04_robbermickey.png' },
-  { name: 'batman', image: 'index_05_batman.png' }
+
 ];
 
 let middle = [
-  { name: 'blueboy', image: 'middle_01_blueboy.png' },
-  { name: 'mickey', image: 'middle_02_mickey.png' },
-  { name: 'injuredelsa', image: 'middle_03_injureelsa.png' },
-  { name: 'pinkie', image: 'middle_04_pinkie.png' },
-  { name: 'tiana', image: 'middle_05_tiana.png' }
+
 ];
 
 let ring = [
-  { name: 'creepybaby', image: 'ring_01_creepybaby.png' },
-  { name: 'rainbowdash', image: 'ring_02_rainbowdash.png' },
-  { name: 'joker2', image: 'ring_03_creepyjoker.png' },
-  { name: 'unicorn', image: 'ring_04_unicorn.png' },
-  { name: 'anna', image: 'ring_05_anna.png' }
+
 ];
 
 let pinky = [
-  { name: 'greenkid', image: 'pinkie_01_greenkid.png' },
-  { name: 'spiderman', image: 'pinkie_02_spiderman.png' },
-  { name: 'zombiepeppa', image: 'pinkie_03_creepypeppa.png' },
-  { name: 'lethalmickey', image: 'pinkie_04_lethalmickey.png' },
-  { name: 'pawpatrol', image: 'pinkie_05_paw.png' }
+
 ];
 
 $(document).ready(setup);
@@ -81,22 +61,32 @@ function setup() {
 
 randomPinky() {
   console.log("Pinky randomized.");
+  pinkyImage = pinky[Math.floor(Math.random() * pinky.length)];
+  document.getElementById("pinky").src = "assets/images/pinky" + pinkyImage + ".png";
 }
 
 randomRing() {
   console.log("Ring randomized.");
+  ringImage = ring[Math.floor(Math.random() * ring.length)];
+  document.getElementById("ring").src = "assets/images/ring" + ringImage + ".png";
 }
 
 randomMiddle() {
   console.log("Middle randomized.");
+  middleImage = middle[Math.floor(Math.random() * middle.length)];
+  document.getElementById("middle").src = "assets/images/middle" + middleImage + ".png";
 }
 
 randomIndex() {
   console.log("Index randomized.");
+  indexImage = index[Math.floor(Math.random() * index.length)];
+  document.getElementById("index").src = "assets/images/index" + indexImage + ".png";
 }
 
 randomThumb() {
   console.log("Thumb randomized.");
+  thumbImage = thumb[Math.floor(Math.random() * thumb.length)];
+  document.getElementById("thumb").src = "assets/images/thumb" + thumbImage + ".png";
 }
 
 // example code for updating images
