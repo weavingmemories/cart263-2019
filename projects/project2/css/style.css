@@ -4,34 +4,31 @@ This is the style file for this project.
 
 **********************************************/
 
-.hand {
-    position    : absolute;
-    bottom      : 10px;
-    left        : 35%;
-    margin-left : -100px; /* half width of img */
-    z-index : -1;
-}
-
-.fingers {
-  position: absolute;
-}
-
 #pinky {
+position:relative;
   z-index: 1;
 }
 
 #ring {
+position:absolute;
+left:15%;
 z-index: 2;
 }
 
 #middle {
+position:absolute;
+left:24%;
 z-index: 3;
 }
 
 #index {
+position:absolute;
+left:36%;
 z-index: 4;
 }
 
 #thumb {
+position:absolute;
+left:47%;
 z-index: 5;
 }
