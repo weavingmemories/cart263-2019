@@ -60,6 +60,7 @@ let pinky = [
 $(document).ready(setup);
 
 function setup() {
+  /*
   if (annyang) {
     var commands = {
       'pinky': randomPinky();,
@@ -74,6 +75,7 @@ function setup() {
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
   }
+  */
 
 }
 
