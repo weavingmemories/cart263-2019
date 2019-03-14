@@ -9,4 +9,9 @@ This is the style file for this project.
     bottom      : 10px;
     left        : 50%;
     margin-left : -100px; /* half width of img */
+    z-index : -1;
+}
+
+.fingers {
+  z-index: 1;
 }

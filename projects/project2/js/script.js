@@ -60,6 +60,7 @@ let pinky = [
 $(document).ready(setup);
 
 function setup() {
+  startup();
   /*
   if (annyang) {
     var commands = {
@@ -109,10 +110,10 @@ randomThumb() {
   document.getElementById("thumb").src = "assets/images/" + thumbImage;
 }
 
-// example code for updating images
-/*
-for (var i = 0; i < boldStuffs.length; i += 1) {
-    var fruit = getRandomItem(fruitsArray);
-    boldStuffs[i].innerHTML = fruit.name + '<img src="'+fruit.image+'">';
+startup() {
+  randomPinky();
+  randomRing();
+  randomMiddle();
+  randomIndex();
+  randomThumb();
 }
-*/
