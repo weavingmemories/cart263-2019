@@ -58,3 +58,11 @@ let pinky = [
 ];
 
 $(document).ready(setup);
+
+// example code for updating images
+/*
+for (var i = 0; i < boldStuffs.length; i += 1) {
+    var fruit = getRandomItem(fruitsArray);
+    boldStuffs[i].innerHTML = fruit.name + '<img src="'+fruit.image+'">';
+}
+*/
