@@ -3,32 +3,31 @@
 This is the style file for this project.
 
 **********************************************/
-
 #pinky {
-position:relative;
+  position: relative;
   z-index: 1;
 }
 
 #ring {
-position:absolute;
-left:15%;
-z-index: 2;
+  position: absolute;
+  left: 15%;
+  z-index: 2;
 }
 
 #middle {
-position:absolute;
-left:24%;
-z-index: 3;
+  position: absolute;
+  left: 24%;
+  z-index: 3;
 }
 
 #index {
-position:absolute;
-left:36%;
-z-index: 4;
+  position: absolute;
+  left: 36%;
+  z-index: 4;
 }
 
 #thumb {
-position:absolute;
-left:47%;
-z-index: 5;
+  position: absolute;
+  left: 47%;
+  z-index: 5;
 }
