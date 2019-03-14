@@ -18,23 +18,43 @@ Project Checklist:
 ******************/
 
 let thumb = [
-
+"thumb1.png",
+"thumb2.png",
+"thumb3.png",
+"thumb4.png", // creepy
+"thumb5.png"
 ];
 
 let index = [
-
+"index1.png",
+"index2.png",
+"index3.png", // creepy
+"index4.png", // creepy
+"index5.png"
 ];
 
 let middle = [
-
+"middle1.png",
+"middle2.png",
+"middle3.png", // creepy
+"middle4.png",
+"middle5.png"
 ];
 
 let ring = [
-
+"ring1.png",
+"ring2.png",
+"ring3.png", // creepy
+"ring4.png",
+"ring5.png"
 ];
 
 let pinky = [
-
+"pinky1.png",
+"pinky2.png",
+"pinky3.png", // creepy
+"pinky4.png", // creepy
+"pinky5.png"
 ];
 
 $(document).ready(setup);
