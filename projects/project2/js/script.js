@@ -2,20 +2,14 @@
 
 /*****************
 
-Title of Project
-Author Name
+Finger Family Fun! Elsa Anna Spiderman Batman Joker Superheroes In Real Life
+by Macey McCormick
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
-
-Project Checklist:
-
-1. Import all images. Display hand. Finger images in an array per finger.
-2. When appropriate voice command goes off (pinky, thumb, etc) randomize and
-   pick another one from that specific array. Then, add probability of 'creepier'
-   finger subset of appearing to that function.
+Say the name of any finger to randomly generate a new finger family member!
 
 ******************/
+
+// Creating arrays of images for each finger
 
 let thumb = [
   "thumb1.png",
@@ -138,6 +132,9 @@ let thumbImage;
 
 $(document).ready(setup);
 
+// The setup function starts us off with a randomly generated hand, and activates
+// annyang's voice commands.
+
 function setup() {
   startup();
 
@@ -149,17 +146,17 @@ function setup() {
       'index': randomIndex,
       'thumb': randomThumb
     };
-    // Add our commands to annyang
-  annyang.addCommands(commands);
 
-  // Start listening. You can call this here, or attach this call to an event, button, etc.
-  annyang.start();
-}
+    annyang.addCommands(commands);
+
+    // Start listening for a voice.
+    annyang.start();
+  }
 }
 
 /*
 I tried to generalize everything into one function, but unfortunately this didn't work.
-Please let me know what I was missing!
+Please let me know what I was missing! Here is the raw code:
 
 function randomDigit(digitName,digitArray) {
   console.log("Digit randomized.");
@@ -172,6 +169,11 @@ function randomDigit(digitName,digitArray) {
 }
 }
 */
+
+// These functions each pick out a random item out of their respective digit's array,
+// and replace the current image with it. They also add another 'creepy' image into
+// the array every time the function is called, so slowly over time, the creepier images
+// will become more and more common.
 
 function randomPinky() {
   console.log("Pinky randomized.");
@@ -201,7 +203,7 @@ function randomIndex() {
   indexImage = index[Math.floor(Math.random() * index.length)];
   document.getElementById("index").src = "assets/images/" + indexImage;
   let temporaryArray = ["index3.png", "index4.png"]
-let creepyImage = temporaryArray[Math.floor(Math.random() * temporaryArray.length)];
+  let creepyImage = temporaryArray[Math.floor(Math.random() * temporaryArray.length)];
   index.push(creepyImage);
 }
 
@@ -211,6 +213,8 @@ function randomThumb() {
   document.getElementById("thumb").src = "assets/images/" + thumbImage;
   thumb.push("thumb4.png");
 }
+
+// When the function is called in setup, it randomly generates every finger.
 
 function startup() {
   randomPinky();
