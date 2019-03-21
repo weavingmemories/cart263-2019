@@ -46,9 +46,11 @@ let hihat;
 // Each array element is one beat and has a string with each
 // drum to play for that beat
 // x = kick, o = snare, * = hihat
-let pattern = ['x','*','xo*','s','x','x','xo','*'];
+let patternOne = ['x','*','xo*','s','x','x','xo','*'];
+let patternTwo = ['x','s','x','x','x','x','x','x'];
 // Which beat of the pattern we're at right now
 let patternIndex = 0;
+let pickedPattern = patternOne;
 let stereoPanner;
 let musicStarted = false;
 
@@ -97,6 +99,17 @@ function setup() {
 
   synth.addEffect(stereoPanner);
 
+  $("img").click(function() {
+    if (pickedPattern === patternOne) {
+console.log("patternTwo now active");
+  pickedPattern = patternTwo;
+} else {
+console.log("patternOne now active");
+pickedPattern = patternOne;
+}
+
+  });
+
 }
 
 // mousePressed
@@ -136,7 +149,7 @@ function playNote() {
 // and plays the appropriate sounds
 function playDrum() {
   // Get the symbols for the current beat in the pattern
-  let symbols = pattern[patternIndex];
+  let symbols = pickedPattern[patternIndex];
 
   // If there's an 'x' in there, play the kick
   if (symbols.indexOf('x') !== -1) {
@@ -154,7 +167,7 @@ function playDrum() {
     synth.pause();
   }
   // Advance the pattern by a beat
-  patternIndex = (patternIndex + 1) % pattern.length;
+  patternIndex = (patternIndex + 1) % pickedPattern.length;
 }
 
 // draw()
