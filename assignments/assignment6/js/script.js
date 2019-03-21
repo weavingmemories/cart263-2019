@@ -16,7 +16,7 @@ http://rednoise.org/rita/index.html
 
 */
 
-let vowels = "aeiou";
+let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
 
 $(document).ready(function() {
 
@@ -49,8 +49,6 @@ function gotData(data) {
     verb = 'are';
   }
 
-
-
   // Now the cat
   let cat = getRandomElement(data.cats);
 
@@ -63,15 +61,19 @@ function gotData(data) {
 
   let junctionOne = 'a';
 
-  if (cat.charAt(0) === vowels ) {
+for (let i = 0; i < vowels.length; i++) {
+  if (cat.charAt(0) === vowels[i] ) {
     junctionOne = 'an';
   }
+}
 
   let junctionTwo = 'a';
 
-  if (cocktail.charAt(0) === vowels ) {
+for (let i = 0; i < vowels.length; i++) {
+  if (cocktail.charAt(0) === vowels[i] ) {
     junctionTwo = 'an';
   }
+}
 
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
