@@ -11,7 +11,7 @@ synthesis and soundfile playing abilities.
 ******************/
 
 // Time for one note
-const NOTE_TEMPO = 500;
+let NOTE_TEMPO = 500;
 // Time for one beat
 const DRUM_TEMPO = 250;
 // Attack time for a note (in seconds)
@@ -26,8 +26,18 @@ const RELEASE = 0.1;
 let frequencies = [
   220,246.94,277.18,293.66,329.63,369.99,415.30
 ];
+
+let tempos = [
+  250,500,1000,1500
+];
+
+let possiblePans = [
+  -1, 0, 1
+];
+
 // The synth
 let synth;
+
 // The sound files
 let kick;
 let snare;
@@ -36,9 +46,11 @@ let hihat;
 // Each array element is one beat and has a string with each
 // drum to play for that beat
 // x = kick, o = snare, * = hihat
-let pattern = ['x','*','xo*',' ','x','x','xo','*'];
+let pattern = ['x','*','xo*','s','x','x','xo','*'];
 // Which beat of the pattern we're at right now
 let patternIndex = 0;
+let stereoPanner;
+let musicStarted = false;
 
 // setup()
 //
@@ -78,6 +90,13 @@ function setup() {
       path: 'assets/sounds/hihat.wav'
     }
   });
+
+   stereoPanner = new Pizzicato.Effects.StereoPanner({
+      pan: 0.0
+  });
+
+  synth.addEffect(stereoPanner);
+
 }
 
 // mousePressed
@@ -85,10 +104,14 @@ function setup() {
 // Using this to start the note and drum sequences to get around
 // user interaction (and to give the files time to load)
 function mousePressed() {
-  // Start an interval for the notes
-  setInterval(playNote,NOTE_TEMPO);
-  // Start an interval for the drums
-  setInterval(playDrum,DRUM_TEMPO);
+  if (musicStarted === false) {
+    // Start an interval for the notes
+    setTimeout(playNote,NOTE_TEMPO);
+    // Start an interval for the drums
+    setInterval(playDrum,DRUM_TEMPO);
+    musicStarted = true;
+  }
+
 }
 
 // playNote
@@ -99,8 +122,12 @@ function playNote() {
   let frequency = frequencies[Math.floor(Math.random() * frequencies.length)];
   // Set the synth's frequency
   synth.frequency = frequency;
-  // If it's note already play, play the synth
+
+  let tempo = tempos[Math.floor(Math.random() * tempos.length)];
+  let pan = possiblePans[Math.floor(Math.random() * possiblePans.length)];
+  stereoPanner.pan = pan;
   synth.play();
+  setTimeout(playNote,tempo);
 }
 
 // playDrum()
@@ -123,6 +150,9 @@ function playDrum() {
   if (symbols.indexOf('*') !== -1) {
     hihat.play();
   }
+  if (symbols.indexOf('s') !== -1) {
+    synth.pause();
+  }
   // Advance the pattern by a beat
   patternIndex = (patternIndex + 1) % pattern.length;
 }
@@ -132,4 +162,5 @@ function playDrum() {
 // Nothing right now.
 
 function draw() {
+
 }
