@@ -49,16 +49,34 @@ function gotData(data) {
     verb = 'are';
   }
 
+
+
   // Now the cat
   let cat = getRandomElement(data.cats);
 
   // Same again for room
   let room = getRandomElement(data.rooms);
 
+  // and cocktails
+
+  let cocktail = getRandomElement(data.cocktails);
+
+  let junctionOne = 'a';
+
+  if (cat.charAt(0) === vowels ) {
+    junctionOne = 'an';
+  }
+
+  let junctionTwo = 'a';
+
+  if (cocktail.charAt(0) === vowels ) {
+    junctionTwo = 'an';
+  }
+
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like a ${cat} in a ${room}.`;
+  let description = `${condiment} ${verb} like ${junctionOne} ${cat} drinking ${junctionTwo} ${cocktail} in a ${room}.`;
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
