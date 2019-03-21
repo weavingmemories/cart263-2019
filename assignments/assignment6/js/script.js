@@ -27,6 +27,8 @@ $(document).ready(function() {
   // the location of the file, and a function to call when the data
   // is available...
   $.getJSON('data/data.json', gotData);
+  $('body').on("click", function() {
+    resetText()});
 });
 
 // gotData (data)
@@ -82,6 +84,12 @@ for (let i = 0; i < vowels.length; i++) {
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
+
+}
+
+function resetText() {
+  $('body').text("");
+  $.getJSON('data/data.json', gotData);
 }
 
 // getRandomElement ()
