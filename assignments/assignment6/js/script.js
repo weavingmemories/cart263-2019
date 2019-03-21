@@ -83,10 +83,18 @@ for (let i = 0; i < vowels.length; i++) {
   }
 }
 
+let junctionRoom = 'a';
+
+for (let i = 0; i < vowels.length; i++) {
+if (room.charAt(0) === vowels[i] ) {
+  junctionRoom = 'an';
+}
+}
+
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like ${junctionAdjectives} ${adjective} ${cat} drinking ${junctionCocktails} ${foodAdjective} ${cocktail} in a ${room}.`;
+  let description = `${condiment} ${verb} like ${junctionAdjectives} ${adjective} ${cat} drinking ${junctionCocktails} ${foodAdjective} ${cocktail} in ${junctionRoom} ${room}.`;
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
