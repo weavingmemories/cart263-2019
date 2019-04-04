@@ -13,18 +13,31 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   <script
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
-  
+
   <!-- My script(s) -->
   <script src="js/script.js"></script>
 </head>
 
 <body>
-  <!-- HTML would go here if needed. -->
+  <a-scene>
+    <a-sky color="black"></a-sky>
+    <a-plane material="src: /assets/images/waterseamless.jpg; repeat: 50 50" rotation="-90 0 0" height="100" width="100"></a-plane>
+    <a-sphere position="-1 3 -3" rotation="0 45 0" color="#4CC3D9"
+           event-set__enter="_event: mouseenter; color: #8FF7FF"
+           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-sphere>
+
+    <a-camera>
+      <a-cursor></a-cursor>
+    </a-camera>
+  </a-scene>
 </body>
 
 </html>
