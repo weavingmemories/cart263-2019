@@ -17,6 +17,7 @@ let frequencies = [
 ];
 
 let synth;
+let interval;
 
 $(document).ready(setup);
 
@@ -29,9 +30,15 @@ function setup() {
     }
   });
 
-  $( "#sphere" ).on("mouseenter", function() {
+  let sphere = document.getElementById("sphere");
+  sphere.addEventListener('mouseenter', function() {
     console.log("Clicked");
-    setInterval(playNote,NOTE_TEMPO);
+   interval = setInterval(playNote,NOTE_TEMPO);
+});
+
+sphere.addEventListener('mouseleave', function() {
+console.log("Left");
+pauseNote();
 });
 }
 
@@ -42,4 +49,9 @@ function playNote() {
   synth.frequency = frequency;
   // If it's note already play, play the synth
   synth.play();
+}
+
+function pauseNote() {
+  clearInterval(interval);
+  synth.stop();
 }
