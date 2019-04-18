@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Libraries -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
+
+  <!-- My script(s) -->
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-sky id="sky" color="black"></a-sky>
+    <a-plane id ="plane" material="src: assets/images/waterseamless.jpg; repeat: 50 50" rotation="-90 0 0" height="100" width="100"></a-plane>
+    <a-sphere id="sphere" position="-1 3 -3" rotation="0 45 0" color="#4CC3D9"
+    event-set__enter="_event: mouseenter; color: #8FF7FF"
+    event-set__leave="_event: mouseleave; color: #4CC3D9"
+           ></a-sphere>
+
+    <a-camera id="camera">
+      <a-cursor id="cursor" fuse="true" fuseTimeout="1000" ></a-cursor>
+    </a-camera>
+  </a-scene>
+</body>
+
+</html>
