@@ -31,11 +31,23 @@
 <body>
   <a-scene>
     <a-sky id="sky" color="black"></a-sky>
-    <a-plane id ="plane" material="src: assets/images/waterseamless.jpg; repeat: 50 50" rotation="-90 0 0" height="100" width="100"></a-plane>
     <a-sphere id="sphere" position="-1 3 -3" rotation="0 45 0" color="#4CC3D9"
     event-set__enter="_event: mouseenter; color: #8FF7FF"
     event-set__leave="_event: mouseleave; color: #4CC3D9"
            ></a-sphere>
+
+           <!-- Basic plane. -->
+      <a-plane color="#f7b2be" height="2" width="2" position="0 0 0" rotation="-90 0 0"></a-plane>
+      <!-- Front-->
+      <a-plane color="#e5b1f7" height="2" width="2" position="0 1 -1" rotation="0 0 90"></a-plane>
+      <!--Back -->
+      <a-plane color="#afabf2" height="2" width="2" position="0 1 1" rotation="0 0 90" side="double"></a-plane>
+      <!-- Left-->
+      <a-plane color="#a9d6f2" height="2" width="2" position="-1 1 0" rotation="0 90 0"></a-plane>
+      <!-- Right-->
+      <a-plane color="#a7efda" height="2" width="2" position="1 1 0" rotation="0 -90 0"></a-plane>
+      <!--Top plane -->
+      <a-plane color="#efd2a7" height="2" width="2" position="0 2 0" rotation="-90 0 0" side="double"></a-plane>
 
     <a-camera id="camera">
       <a-cursor id="cursor" fuse="true" fuseTimeout="1000" ></a-cursor>
