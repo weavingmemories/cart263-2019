@@ -30,7 +30,7 @@ function setup() {
     }
   });
 
-  let sphere = document.getElementById("sphere");
+  let sphere = document.getElementById("goodsphere");
   sphere.addEventListener('mouseenter', function() {
     console.log("Clicked");
    interval = setInterval(playNote,NOTE_TEMPO);
