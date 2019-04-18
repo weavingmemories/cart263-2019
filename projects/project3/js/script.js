@@ -12,8 +12,82 @@ author, and this description to match your project!
 
 const NOTE_TEMPO = 500;
 
-let frequencies = [
-  220,246.94,277.18,293.66,329.63,369.99,415.30
+let cFlatMajor = [
+
+];
+
+let gFlatMajor = [
+
+];
+
+let dFlatMajor = [
+
+];
+
+let aFlatMajor = [
+
+];
+
+let eFlatMajor = [
+
+];
+
+let bFlatMajor = [
+
+];
+
+let fMajor = [
+
+];
+
+let cMajor = [
+  261.63, 246.94, 220.00, 196.00, 174.61, 164.81
+];
+
+let gMajor = [
+
+];
+
+let dMajor = [
+
+];
+
+let aMajor = [
+
+];
+
+let eMajor = [
+
+];
+
+let bMajor = [
+
+];
+
+let fSharpMajor = [
+
+];
+
+let cSharpMajor = [
+
+];
+
+let scaleKeys = [
+  cFlatMajor,
+  gFlatMajor,
+  dFlatMajor,
+  aFlatMajor,
+  eFlatMajor,
+  bFlatMajor,
+  fMajor,
+  cMajor,
+  gMajor,
+  dMajor,
+  aMajor,
+  eMajor,
+  bMajor,
+  fSharpMajor,
+  cSharpMajor
 ];
 
 let synth;
