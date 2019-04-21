@@ -25,6 +25,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
 
   <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-mirror-component/dist/aframe-mirror-component.min.js"></script>
 
   <!-- My script(s) -->
   <script src="js/script.js"></script>
@@ -32,20 +33,20 @@
 
 <body>
   <a-scene>
-      <a-entity environment="preset: starry; ground:none"></a-entity>
+      <a-entity environment="preset: starry; grid:none"></a-entity>
     <a-camera id="camera">
       <a-cursor id="cursor" fuse="true" fuseTimeout="1000" ></a-cursor>
     </a-camera>
 
 
-    <a-sphere id="goodsphere" position="1 1 1" rotation="0 45 0" radius="0.2" color="#4CC3D9"
+    <a-sphere id="goodsphere" metalness="1" position="1 1 1" rotation="45 90 180" radius="0.2" color="#4CC3D9"
     event-set__enter="_event: mouseenter; color: #8FF7FF"
     event-set__leave="_event: mouseleave; color: #4CC3D9"
            ></a-sphere>
 
-    <a-sphere id="badsphere" position="0.5 1 1" rotation="0 45 0" radius="0.2" color="#d65035"
-    event-set__enter="_event: mouseenter; color: #fcb5a6"
-    event-set__leave="_event: mouseleave; color: #d65035"
+    <a-sphere id="badsphere" position="0.5 1 1" emissive="#fff58c" animation="property: position; to: 10 10 10; loop:true; dur:10000; direction:alternate" radius="0.2" color="#d65035"
+    event-set__enter="_event: mouseenter; emissive: #fcb5a6"
+    event-set__leave="_event: mouseleave; emissive: #fff58c"
            ></a-sphere>
 
 
