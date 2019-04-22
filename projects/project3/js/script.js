@@ -105,6 +105,7 @@ let interval;
 $(document).ready(setup);
 
 function setup() {
+
   synth = new Pizzicato.Sound({
     source: 'wave',
     options: {
@@ -119,10 +120,16 @@ function setup() {
 
 synth.addEffect(distortion);
 
-  let sphere = document.getElementById("goodsphere");
+    $("#StartButton").click(function () {
+    $("#SplashScreen").hide();
+    $("#spaceJam").show();
+
+});
+
+  let sphere = document.getElementById("addGainPlanet");
   sphere.addEventListener('mouseenter', function() {
  effectInterval = setInterval(function () {
-  let gain = effectGain += 0.2;
+  let gain = effectGain += 0.1;
   distortion.gain = gain;
   console.log(effectGain);
  },500);
@@ -130,10 +137,10 @@ synth.addEffect(distortion);
    interval = setInterval(playNote,NOTE_TEMPO);
 });
 
-let sphere2 = document.getElementById("badsphere");
+let sphere2 = document.getElementById("subGainPlanet");
 sphere2.addEventListener('mouseenter', function() {
  effectInterval = setInterval(function () {
-  let gain = effectGain -= 0.2;
+  let gain = effectGain -= 0.1;
   distortion.gain = gain;
   console.log(effectGain);
  },500);
