@@ -2,11 +2,12 @@
 
 /*****************
 
-Title of Project
-Author Name
+Space Jam
+Macey McCormick
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+A musical-spatial experience. Look at the planets; change the music you hear.
+Abstractly control tempo, scale, and distortion.
+(Works on mobile, too!)
 
 ******************/
 
@@ -49,7 +50,7 @@ $(document).ready(setup);
 
 function setup() {
 
-// Creating our synth sound.
+  // Creating our synth sound.
   synth = new Pizzicato.Sound({
     source: 'wave',
     options: {
@@ -58,22 +59,22 @@ function setup() {
     }
   });
 
-// Creating our distortion effect for later.
+  // Creating our distortion effect for later.
   var distortion = new Pizzicato.Effects.Distortion({
     gain: effectGain
   });
 
   synth.addEffect(distortion);
 
-// This is the 'title' screen. It circumvents music problems on mobile and also
-// just kind of keeps things neat.
+  // This is the 'title' screen. It circumvents music problems on mobile and also
+  // just kind of keeps things neat.
   $("#StartButton").click(function() {
     $("#SplashScreen").hide();
     $("#spaceJam").show();
     setTimeout(playNote, tempo);
   });
 
-// This chunk of code adds event mouse over events to all of the planets.
+  // This chunk of code adds event mouse over events to all of the planets.
 
   let sphere = document.getElementById("addGainPlanet");
   sphere.addEventListener('mouseenter', function() {

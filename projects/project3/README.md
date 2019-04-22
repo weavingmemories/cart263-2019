@@ -1,7 +1,12 @@
-*/ Project 3 Prototype /*
+*/ Project 3: SPACE JAM /*
    by Macey McCormick
 
-When the cursor is pointed at the sphere, generative sound will play.
-When the cursor moves off of the sphere, the sound will stop.
-This prototype is hopefully the beginning of a playful, 3D VR way of looking
-at and playing with sound and soundscapes.
+Space Jam, referential title aside, is a piece created using AFrame and Pizzicato.js. The user can access it either on desktop or mobile so as to be able to use mobile virtual reality headsets. The user can look around the space- their gaze, and length of gaze, on certain planets, will determine the changes in a initially simple tune. They can apply and remove distortion in increments, quicken or slow the tempo in increments as well, or change the scale of notes being played.
+
+This project was born out of a desire to continue using AFrame. The library, along with virtual reality in itself, has always been a magical experience for me. I was hoping to create something simple yet engaging that involves that same kind of exploration and wonder that I feel every time I look at a VR piece through a headset or phone. The library is also very intuitive to pick up and learn for me, being primarily based in HTML language, and something I’d like to continue exploring further. Adding sound was a natural next step; I wanted the experience to stimulate multiple senses and either be a delight or grate on the ears, depending on the user’s experience interacting with the piece. Pizzicato was another library that was easier to learn for me, and I wanted to work with something that would yield better results than previous projects.
+
+Initially, though, I wasn’t certain how these two libraries would come together. I knew what I wanted to program, but no themes or cohesiveness really came together until I was midway through. All of the spheres in a dark, empty space reminded me of planets; the next thing to do, of course, was to have them orbit the player. Animation in a virtual space was something I’ve already implemented in a past project, and I wanted to recreate that in a new and challenging way. I’ve also always felt a fondness for the vastness and seemingly infinite nature of space, and thought it fitting for an all-encompassing, 360 view type of experience. I considered adding text, to make the planets’ functions seem less abstract, but preferred the abstract sense of discovery, especially with a space theme, surrounded by foreign, unrecognizable planets.
+
+The orbit also insinuates the user is at the center of it all- they replace the sun, and are able to affect the planets simply by looking at them. This gives them a sense of significant power, even if all they are technically able to ‘control’ is the music.
+
+If I were to continue iterating on this project, I think I would like to continue adding musical complexity. Initially, I wanted scales to slowly increase or decrease by increment, which would involve two-dimensional arrays. I had trouble coming to understand and manipulate them, and ended up omitting this feature in favor of a few favorite scales that sounded different enough to the ear. I also think finding a way to mathematically work with pitch and scales would be a good addition as well, and perhaps adding different instruments to create a full composition.
