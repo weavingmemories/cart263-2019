@@ -55,46 +55,54 @@
     <a-sky color="#0a0614"></a-sky>
     <a-entity star-system "count: 1000; radius: 250; depth: 1000"></a-entity>
     <a-camera id="camera">
-      <a-cursor id="cursor" fuse="true" fuseTimeout="1000"></a-cursor>
+      <a-cursor id="cursor" fuse="true" fuseTimeout="1000" material="color: white"></a-cursor>
     </a-camera>
 
     <a-light color="blue" type="point" position="0 0 0">
 
       <a-entity id="orbit-planet1" mixin="orbit" animation="dur: 40000">
-        <a-sphere id="gMinorPlanet" position="0 0 6" radius=".4" color="pink" mixin="orbit"></a-sphere>
+        <a-sphere id="gMinorPlanet" position="0 0 6" radius=".4" color="#ffa5a5" mixin="orbit"
+        event-set__enter="_event: mouseenter; color: #ffd8d8" event-set__leave="_event: mouseleave; color: #ffa5a5"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet2" mixin="orbit" animation="dur:20000">
-        <a-sphere id="addGainPlanet" position="1 2 1" rotation="45 90 180" radius="0.2" color="#4CC3D9" event-set__enter="_event: mouseenter; color: #8FF7FF" event-set__leave="_event: mouseleave; color: #4CC3D9"></a-sphere>
+        <a-sphere id="addGainPlanet" position="1 2 1" rotation="45 90 180" radius="0.2" color="#aae059" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#d3e8b4" event-set__leave="_event: mouseleave; color: #aae059"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet3" mixin="orbit" animation="dur:30000">
-        <a-sphere id="subGainPlanet" position="0.5 1 1" emissive="#fff58c" radius="0.2" color="#d65035" animation="property: rotation; loop:true; to: 0 360 0; easing:linear; dur:10000; direction:alternate"
-          event-set__enter="_event: mouseenter; emissive: #fcb5a6" event-set__leave="_event: mouseleave; emissive: #fff58c"></a-sphere>
+        <a-sphere id="subGainPlanet" position="0.5 1 1" radius="0.2" color="#58f4d5" mixin="orbit"
+          event-set__enter="_event: mouseenter; color: #c0e5de" event-set__leave="_event: mouseleave; color: #58f4d5"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet4" mixin="orbit" animation="dur: 40000">
-        <a-sphere id="eFlatMajorPlanet" position="3 -1 8" radius=".4" color="red" mixin="orbit"></a-sphere>
+        <a-sphere id="eFlatMajorPlanet" position="3 -1 8" radius=".4" color="#329fff" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#c4e3ff" event-set__leave="_event: mouseleave; color: #329fff"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet5" mixin="orbit" animation="dur: 10000">
-        <a-sphere id="fastTempoPlanet" position="5 -1 5" radius=".4" color="green" mixin="orbit"></a-sphere>
+        <a-sphere id="fastTempoPlanet" position="5 -1 5" radius=".4" color="#f4b43d" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#f7e2bb" event-set__leave="_event: mouseleave; color: #f4b43d"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet6" mixin="orbit" animation="dur: 70000">
-        <a-sphere id="slowTempoPlanet" position="5 4 6" radius=".3" color="blue" mixin="orbit"></a-sphere>
+        <a-sphere id="slowTempoPlanet" position="5 4 6" radius=".3" color="#f94e45" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#f4c3c1" event-set__leave="_event: mouseleave; color: #f94e45"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet7" mixin="orbit" animation="dur: 60000">
-        <a-sphere id="aMajorPlanet" position="4 0.5 -1" radius=".2" color="orange" mixin="orbit"></a-sphere>
+        <a-sphere id="aMajorPlanet" position="4 0.5 -1" radius=".2" color="#8958f4" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#c8b5f2" event-set__leave="_event: mouseleave; color: #8958f4"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet8" mixin="orbit" animation="dur: 60000">
-        <a-sphere id="eFlatMinorPlanet" position="10 -4 10" radius="1.5" color="purple" mixin="orbit"></a-sphere>
+        <a-sphere id="eFlatMinorPlanet" position="10 -4 10" radius="1.5" color="#fff04f" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#fcf9d6" event-set__leave="_event: mouseleave; color: #fff04f"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet9" mixin="orbit" animation="dur: 20000">
-        <a-sphere id="fSharpMajorPlanet" position="2 4 -3" radius=".5" color="yellow" mixin="orbit"></a-sphere>
+        <a-sphere id="fSharpMajorPlanet" position="2 4 -3" radius=".5" color="#686868" mixin="orbit"
+        event-set__enter="_event: mouseenter; color:#ccc9c9" event-set__leave="_event: mouseleave; color: #686868"></a-sphere>
       </a-entity>
 
   </a-scene>
