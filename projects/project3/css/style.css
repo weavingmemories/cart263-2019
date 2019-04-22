@@ -7,7 +7,7 @@ This is the style file for this project.
 body {font-family: Arial, Helvetica, sans-serif;}
 
 .image-container {
-  background-image: url("https://github.com/weavingmemories/cart263-2019/blob/master/projects/project3/assets/images/sky.jpg");
+  background-color:#0a0614;
   background-size: cover;
   position: relative;
   height: 500px;
