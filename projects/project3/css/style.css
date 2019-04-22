@@ -7,7 +7,7 @@ This is the style file for this project.
 body {font-family: Arial, Helvetica, sans-serif;}
 
 .image-container {
-  background-image: url("/assets/images/sky.jpg");
+  background-image: url("assets/images/sky.jpg");
   background-size: cover;
   position: relative;
   height: 500px;
