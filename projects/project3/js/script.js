@@ -10,8 +10,6 @@ author, and this description to match your project!
 
 ******************/
 
-let NOTE_TEMPO = 500;
-
 let eFlatMajor = [
   311.13, 293.66, 261.63, 233.08, 207.65, 196.00, 174.61, 155.56
 ];
@@ -41,6 +39,7 @@ let effectInterval;
 let effectGain = 0;
 let synth;
 let interval;
+let tempo = 500;
 
 $(document).ready(setup);
 
@@ -63,7 +62,7 @@ function setup() {
   $("#StartButton").click(function() {
     $("#SplashScreen").hide();
     $("#spaceJam").show();
-    interval = setInterval(playNote, NOTE_TEMPO);
+    setTimeout(playNote,tempo);
   });
 
   let sphere = document.getElementById("addGainPlanet");
@@ -108,10 +107,8 @@ function setup() {
 
   let sphere5 = document.getElementById("fastTempoPlanet");
   sphere5.addEventListener('mouseenter', function() {
-    effectInterval = setInterval(function() {
-      NOTE_TEMPO - 100;
-      console.log(NOTE_TEMPO);
-    }, 500);
+      tempo -= 50;
+      console.log(noteTempo);
   });
 
   sphere5.addEventListener('mouseleave', function() {
@@ -129,6 +126,7 @@ function playNote() {
   // If it's note already play, play the synth
 
   synth.play();
+  setTimeout(playNote,tempo);
 }
 
 function pauseNote() {

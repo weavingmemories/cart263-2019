@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
@@ -8,25 +9,19 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 
   <!-- Libraries -->
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!-- AFrame-->
   <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-  <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
   <!-- Pizzicato -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
 
-<!-- Adding a quick fix to make a starry sky, a component for aframe-->
+  <!-- Adding a quick fix to make a starry sky, a component for aframe-->
   <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
 
   <!-- My script(s) -->
@@ -35,10 +30,10 @@
 
 <body>
 
-<div id="SplashScreen">
-<h1>Space Jam</h1>
-<input id="StartButton" type="button" value="Start"/>
-</div>
+  <div id="SplashScreen">
+    <h1>Space Jam</h1>
+    <input id="StartButton" type="button" value="Start" />
+  </div>
   <a-scene id="spaceJam" style="display:none;">
 
     <!-- This is a singular animation, saved to be used on every 'planet'-->
@@ -48,39 +43,38 @@
 
     <a-entity id="basic-light" light="type: ambient; color: #BBB"></a-entity>
 
-    <a-sky color= "#0a0614"></a-sky>
-      <a-entity star-system "count: 1000; radius: 250; depth: 1000"></a-entity>
+    <a-sky color="#0a0614"></a-sky>
+    <a-entity star-system "count: 1000; radius: 250; depth: 1000"></a-entity>
     <a-camera id="camera">
-      <a-cursor id="cursor" fuse="true" fuseTimeout="1000" ></a-cursor>
+      <a-cursor id="cursor" fuse="true" fuseTimeout="1000"></a-cursor>
     </a-camera>
 
     <a-light color="blue" type="point" position="0 0 0">
 
-    <a-entity id="orbit-planet1" mixin="orbit" animation="dur: 40000">
+      <a-entity id="orbit-planet1" mixin="orbit" animation="dur: 40000">
         <a-sphere id="gMinorPlanet" position="0 0 6" radius=".4" color="pink" mixin="orbit"></a-sphere>
       </a-entity>
 
-    <a-entity id="orbit-planet2" mixin="orbit" animation="dur:20000">
-    <a-sphere id="addGainPlanet" position="1 2 1" rotation="45 90 180" radius="0.2" color="#4CC3D9"
-    event-set__enter="_event: mouseenter; color: #8FF7FF"
-    event-set__leave="_event: mouseleave; color: #4CC3D9"
-           ></a-sphere>
-    </a-entity>
+      <a-entity id="orbit-planet2" mixin="orbit" animation="dur:20000">
+        <a-sphere id="addGainPlanet" position="1 2 1" rotation="45 90 180" radius="0.2" color="#4CC3D9" event-set__enter="_event: mouseenter; color: #8FF7FF" event-set__leave="_event: mouseleave; color: #4CC3D9"></a-sphere>
+      </a-entity>
 
-    <a-entity id="orbit-planet3" mixin="orbit" animation="dur:30000">
-    <a-sphere id="subGainPlanet" position="0.5 1 1" emissive="#fff58c" radius="0.2" color="#d65035" animation="property: rotation; loop:true; to: 0 360 0; easing:linear; dur:10000; direction:alternate"
-    event-set__enter="_event: mouseenter; emissive: #fcb5a6"
-    event-set__leave="_event: mouseleave; emissive: #fff58c"
-           ></a-sphere>
-    </a-entity>
+      <a-entity id="orbit-planet3" mixin="orbit" animation="dur:30000">
+        <a-sphere id="subGainPlanet" position="0.5 1 1" emissive="#fff58c" radius="0.2" color="#d65035" animation="property: rotation; loop:true; to: 0 360 0; easing:linear; dur:10000; direction:alternate"
+          event-set__enter="_event: mouseenter; emissive: #fcb5a6" event-set__leave="_event: mouseleave; emissive: #fff58c"></a-sphere>
+      </a-entity>
 
-    <a-entity id="orbit-planet4" mixin="orbit" animation="dur: 40000">
+      <a-entity id="orbit-planet4" mixin="orbit" animation="dur: 40000">
         <a-sphere id="eFlatMajorPlanet" position="3 -1 8" radius=".4" color="red" mixin="orbit"></a-sphere>
       </a-entity>
 
       <a-entity id="orbit-planet5" mixin="orbit" animation="dur: 10000">
-          <a-sphere id="fastTempoPlanet" position="5 -1 5" radius=".4" color="green" mixin="orbit"></a-sphere>
-        </a-entity>
+        <a-sphere id="fastTempoPlanet" position="5 -1 5" radius=".4" color="green" mixin="orbit"></a-sphere>
+      </a-entity>
+
+      <a-entity id="orbit-planet6" mixin="orbit" animation="dur: 70000">
+        <a-sphere id="slowTempoPlanet" position="5 2 6" radius=".3" color="blue" mixin="orbit"></a-sphere>
+      </a-entity>
 
   </a-scene>
 </body>
