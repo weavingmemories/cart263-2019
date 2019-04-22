@@ -107,14 +107,28 @@ function setup() {
 
   let sphere5 = document.getElementById("fastTempoPlanet");
   sphere5.addEventListener('mouseenter', function() {
-    tempo -= 50;
-    console.log(tempo);
+    effectInterval = setInterval(function() {
+      tempo -= 50;
+      console.log(tempo);
+    }, 500);
+  });
+
+  sphere5.addEventListener('mouseleave', function() {
+    console.log("Left");
+    clearInterval(effectInterval);
   });
 
   let sphere6 = document.getElementById("slowTempoPlanet");
   sphere6.addEventListener('mouseenter', function() {
-    tempo += 50;
-    console.log(tempo);
+    effectInterval = setInterval(function() {
+      tempo += 50;
+      console.log(tempo);
+    }, 500);
+  });
+
+  sphere6.addEventListener('mouseleave', function() {
+    console.log("Left");
+    clearInterval(effectInterval);
   });
 }
 
