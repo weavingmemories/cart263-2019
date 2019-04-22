@@ -123,7 +123,7 @@ synth.addEffect(distortion);
     $("#StartButton").click(function () {
     $("#SplashScreen").hide();
     $("#spaceJam").show();
-
+    interval = setInterval(playNote,NOTE_TEMPO);
 });
 
   let sphere = document.getElementById("addGainPlanet");
@@ -134,7 +134,7 @@ synth.addEffect(distortion);
   console.log(effectGain);
  },500);
     console.log("Array + 1");
-   interval = setInterval(playNote,NOTE_TEMPO);
+
 });
 
 let sphere2 = document.getElementById("subGainPlanet");
@@ -146,20 +146,19 @@ sphere2.addEventListener('mouseenter', function() {
  },500);
 console.log(effectGain);
   console.log("Array - 1");
- interval = setInterval(playNote,NOTE_TEMPO);
 });
 
 sphere.addEventListener('mouseleave', function() {
 console.log("Left");
 clearInterval(effectInterval);
-pauseNote();
+//pauseNote();
 });
 
 
 sphere2.addEventListener('mouseleave', function() {
 console.log("Left");
 clearInterval(effectInterval);
-pauseNote();
+//pauseNote();
 });
 }
 
