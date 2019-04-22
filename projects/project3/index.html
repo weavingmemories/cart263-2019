@@ -57,7 +57,7 @@
     <a-light color="blue" type="point" position="0 0 0">
 
     <a-entity id="orbit-planet1" mixin="orbit" animation="dur: 40000">
-        <a-sphere id="planet1" position="0 0 6" radius=".4" color="pink" mixin="orbit"></a-sphere>
+        <a-sphere id="gMinorPlanet" position="0 0 6" radius=".4" color="pink" mixin="orbit"></a-sphere>
       </a-entity>
 
     <a-entity id="orbit-planet2" mixin="orbit" animation="dur:20000">
@@ -74,6 +74,13 @@
            ></a-sphere>
     </a-entity>
 
+    <a-entity id="orbit-planet4" mixin="orbit" animation="dur: 40000">
+        <a-sphere id="eFlatMajorPlanet" position="3 -1 8" radius=".4" color="red" mixin="orbit"></a-sphere>
+      </a-entity>
+
+      <a-entity id="orbit-planet5" mixin="orbit" animation="dur: 10000">
+          <a-sphere id="fastTempoPlanet" position="5 -1 5" radius=".4" color="green" mixin="orbit"></a-sphere>
+        </a-entity>
 
   </a-scene>
 </body>
