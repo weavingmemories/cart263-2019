@@ -10,15 +10,15 @@ author, and this description to match your project!
 
 ******************/
 
-let eFlatMajor = [
+let eFlatMajor = [ // added
   311.13, 293.66, 261.63, 233.08, 207.65, 196.00, 174.61, 155.56
 ];
 
-let cMajor = [
+let cMajor = [ // default
   261.63, 246.94, 220.00, 196.00, 174.61, 164.81, 146.83, 130.81
 ];
 
-let aMajor = [
+let aMajor = [ // added
   440.00, 415.30, 369.99, 329.63, 293.66, 277.18, 246.94, 220.00
 ];
 
@@ -26,11 +26,11 @@ let fSharpMajor = [
   369.99, 349.23, 311.13, 277.18, 246.94, 233.08, 207.65, 185.00
 ];
 
-let eFlatMinor = [
+let eFlatMinor = [ // added
   311.13, 277.18, 246.94, 233.08, 207.65, 185.00, 174.61, 155.56
 ];
 
-let gMinor = [
+let gMinor = [ // added
   392.00, 349.23, 311.13, 293.66, 261.63, 233.08, 220.00, 196.00
 ];
 
@@ -129,6 +129,24 @@ function setup() {
   sphere6.addEventListener('mouseleave', function() {
     console.log("Left");
     clearInterval(effectInterval);
+  });
+
+  let sphere7 = document.getElementById("aMajorPlanet");
+  sphere7.addEventListener('mouseenter', function() {
+    currentScale = aMajor;
+    console.log(currentScale);
+  });
+
+  let sphere8 = document.getElementById("eFlatMinorPlanet");
+  sphere8.addEventListener('mouseenter', function() {
+    currentScale = eFlatMinor;
+    console.log(currentScale);
+  });
+
+  let sphere9 = document.getElementById("fSharpMajorPlanet");
+  sphere9.addEventListener('mouseenter', function() {
+    currentScale = fSharpMajor;
+    console.log(currentScale);
   });
 }
 

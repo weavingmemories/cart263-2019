@@ -31,8 +31,17 @@
 <body>
 
   <div id="SplashScreen">
-    <h1>Space Jam</h1>
-    <input id="StartButton" type="button" value="Start" />
+    <div class="image-container">
+      <div class="headtext">SPACE JAM</div>
+    </div>
+    <p>
+      <center>A musical-spatial experience. Look at the planets; change the music you hear. Abstractly control tempo, scale, and distortion.
+    </p>
+    <p>(Works on mobile, too!)</p>
+    <p> Press the start button below to begin!</center>
+    </p>
+
+    <center><input id="StartButton" type="button" value="Start" /></center>
   </div>
   <a-scene id="spaceJam" style="display:none;">
 
@@ -74,6 +83,18 @@
 
       <a-entity id="orbit-planet6" mixin="orbit" animation="dur: 70000">
         <a-sphere id="slowTempoPlanet" position="5 4 6" radius=".3" color="blue" mixin="orbit"></a-sphere>
+      </a-entity>
+
+      <a-entity id="orbit-planet7" mixin="orbit" animation="dur: 60000">
+        <a-sphere id="aMajorPlanet" position="4 0.5 -1" radius=".2" color="orange" mixin="orbit"></a-sphere>
+      </a-entity>
+
+      <a-entity id="orbit-planet8" mixin="orbit" animation="dur: 60000">
+        <a-sphere id="eFlatMinorPlanet" position="10 -4 10" radius="1.5" color="purple" mixin="orbit"></a-sphere>
+      </a-entity>
+
+      <a-entity id="orbit-planet9" mixin="orbit" animation="dur: 20000">
+        <a-sphere id="fSharpMajorPlanet" position="2 4 -3" radius=".5" color="yellow" mixin="orbit"></a-sphere>
       </a-entity>
 
   </a-scene>
