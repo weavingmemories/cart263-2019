@@ -62,7 +62,7 @@ function setup() {
   $("#StartButton").click(function() {
     $("#SplashScreen").hide();
     $("#spaceJam").show();
-    setTimeout(playNote,tempo);
+    setTimeout(playNote, tempo);
   });
 
   let sphere = document.getElementById("addGainPlanet");
@@ -95,25 +95,26 @@ function setup() {
 
   let sphere3 = document.getElementById("gMinorPlanet");
   sphere3.addEventListener('mouseenter', function() {
-      currentScale = gMinor;
+    currentScale = gMinor;
     console.log(currentScale);
   });
 
   let sphere4 = document.getElementById("eFlatMajorPlanet");
   sphere4.addEventListener('mouseenter', function() {
-      currentScale = eFlatMajor;
+    currentScale = eFlatMajor;
     console.log(currentScale);
   });
 
   let sphere5 = document.getElementById("fastTempoPlanet");
   sphere5.addEventListener('mouseenter', function() {
-      tempo -= 50;
-      console.log(noteTempo);
+    tempo -= 50;
+    console.log(tempo);
   });
 
-  sphere5.addEventListener('mouseleave', function() {
-    console.log("Left");
-    clearInterval(effectInterval);
+  let sphere6 = document.getElementById("slowTempoPlanet");
+  sphere6.addEventListener('mouseenter', function() {
+    tempo += 50;
+    console.log(tempo);
   });
 }
 
@@ -126,7 +127,7 @@ function playNote() {
   // If it's note already play, play the synth
 
   synth.play();
-  setTimeout(playNote,tempo);
+  setTimeout(playNote, tempo);
 }
 
 function pauseNote() {
